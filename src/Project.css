@@ -1,0 +1,91 @@
+/* =====Header===== */
+.header {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  background-color: white; /* Light grey background color */
+  color: #5E5E5E;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 12px 36px; /* Add some horizontal padding */
+  justify-content: center;
+  border-bottom: 2px solid rgba(34, 34, 34, .15);
+}
+
+.header__logo {
+  width: 100px;
+}
+
+.header__search {
+  display: flex;
+  flex: 0.7;
+  align-items: center;
+  border-radius: 24px;
+  border: 2px solid #5E5E5E; /* Solid border for the search container */
+  background-color: #FFFFFF; /* White background for the search container */
+  overflow: hidden; /* Prevents children from overflowing the parent's border */
+  margin: 10px;
+}
+
+.header__searchInput {
+  flex-grow: 1; /* Allow the input to fill the space in the flex container */
+  padding: 12px 10px; /* Increase vertical padding to increase height */
+  font-size: 16px; /* Optionally adjust font size for aesthetics */
+  color:rgba(34, 34, 34, .15);
+  border: none; /* No additional border for the input */
+  outline: none; /* Remove the focus outline */
+  background-color: transparent; /* No background color, it inherits from the parent */
+}
+
+.header__searchInput::placeholder {
+  opacity: 0.8; /* Ensure the placeholder color isn't reduced by default styles */
+}
+
+.header__searchIcon {
+  padding: 5px;
+  background-color: #FF772A;
+  color: #FFFFFF; /* White color for the search icon */
+  border-radius: 999999px; /* Rounded corners on the right side of the icon */
+  width: 48px;
+  height: 48px;
+  margin: 2px;
+}
+
+
+.header__nav {
+  display: flex;
+  align-items: center;
+}
+
+.header__option {
+  margin-right: 10px; /* Add margin to separate from the shopping cart icon */
+  font-size: 13px; /* Increase font size for visibility */
+  line-height: 1.4;
+  min-width: 36px;
+  padding: 9px 15px;
+}
+
+.header__optionCart {
+  color: #5E5E5E; /* Same color as text for the shopping cart icon */
+  margin-right: 10px;
+  position: relative;
+}
+
+.header__cartCount {
+  position: absolute; /* Position the basket count absolutely within its parent */
+  top: -8px; /* Adjust top position to move it above the cart icon */
+  right: -8px; /* Adjust right position to move it to the right of the cart icon */
+  background-color: #FF772A;
+  color: #FFFFFF;
+  font-size: 12px;
+  border-radius: 12px;
+  /* Other styles to ensure the text is centered and looks like a badge */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 16px; /* Ensure the badge has a minimum width */
+  height: 16px; /* Set the height for the badge */
+  box-sizing: border-box;
+  border: 2px solid #FFFFFF; /* Border color similar to the header background for a "cut-out" effect */
+}
