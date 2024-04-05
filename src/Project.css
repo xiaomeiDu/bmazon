@@ -14,7 +14,7 @@
 }
 
 .header__logo {
-  width: 100px;
+  width: 120px;
 }
 
 .header__search {
@@ -43,7 +43,7 @@
 }
 
 .header__searchIcon {
-  padding: 5px;
+  padding: 7px;
   background-color: #FF772A;
   color: #FFFFFF; /* White color for the search icon */
   border-radius: 999999px; /* Rounded corners on the right side of the icon */
