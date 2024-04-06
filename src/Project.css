@@ -90,12 +90,7 @@
   border: 2px solid #FFFFFF; /* Border color similar to the header background for a "cut-out" effect */
 }
 
-
-
 /* =====Product===== */
-/* Project.css */
-
-/* Styling for individual product */
 .product {
   display: flex;
   flex-direction: column;
@@ -104,6 +99,8 @@
   padding: 20px;
   border-radius: 4px;
   text-align: center;
+  width: 300px;
+  height: 370px; /* Set a fixed height */
 }
 
 .product img {
@@ -113,11 +110,20 @@
   margin: 0 auto; /* Center the image horizontally */
 }
 
+.product h3 {
+  height: 50px; /* Set a fixed height for the title */
+  margin: 10px 0; /* Adjust as needed */
+  overflow: hidden; /* Prevent long titles from taking up too much space */
+}
+
+.product .price {
+  margin-bottom: 10px;
+}
+
 .product button {
   background-color: #FF772A;
   color: #FFFFFF;
   padding: 10px 20px;
-  margin-top: 10px;
   border-radius: 20px;
   border: none;
   opacity: 0.9;
@@ -130,8 +136,9 @@
 .product-list {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: minmax(300px, auto); /* Set a minimum height for the grid rows */
-  gap: 15px;
+  grid-auto-rows: minmax(400px, auto); /* Set a minimum height for the grid rows */
+  gap: 20px;
   align-items: stretch; /* Stretch the items to fill the grid cell */
   padding: 50px;
+  margin-left: 200px; /* Add left margin to move the list to the right */
 }
