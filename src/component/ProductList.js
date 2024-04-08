@@ -1,10 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
+import { SearchContext } from "../contexts/SearchContext";
 import axios from "axios";
 import Product from "./Product";
+import noResultsImage from "../assets/noresults.png";
 import "../Project.css";
 
 function ProductList() {
   const [products, setProducts] = useState([]);
+  const { searchQuery = "" } = useContext(SearchContext); // Add default value
 
   useEffect(() => {
     axios
@@ -17,11 +20,23 @@ function ProductList() {
       });
   }, []);
 
+  const filteredProducts = products.filter((product) =>
+    product.title.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
     <div className="product-list">
-      {products.map((product) => (
-        <Product key={product.id} {...product} />
-      ))}
+      {filteredProducts.length > 0 ? (
+        filteredProducts.map((product) => (
+          <Product key={product.id} {...product} />
+        ))
+      ) : (
+        <img
+          src={noResultsImage}
+          alt="No Results"
+          className="no-results-image"
+        /> // Show the "No Results" image if no products are found
+      )}
     </div>
   );
 }

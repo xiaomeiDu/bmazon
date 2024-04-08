@@ -31,8 +31,8 @@
 .header__searchInput {
   flex-grow: 1; /* Allow the input to fill the space in the flex container */
   padding: 12px 10px; /* Increase vertical padding to increase height */
-  font-size: 16px; /* Optionally adjust font size for aesthetics */
-  color: rgba(34, 34, 34, 0.15);
+  font-size: 15px; /* Optionally adjust font size for aesthetics */
+  margin-left: 10px;
   border: none; /* No additional border for the input */
   outline: none; /* Remove the focus outline */
   background-color: transparent; /* No background color, it inherits from the parent */
@@ -44,12 +44,22 @@
 
 .header__searchIcon {
   padding: 7px;
-  background-color: #FF772A;
-  color: #FFFFFF; /* White color for the search icon */
+  background-color: #ff772a;
+  color: #ffffff; /* White color for the search icon */
   border-radius: 999999px; /* Rounded corners on the right side of the icon */
   width: 48px;
   height: 48px;
   margin: 2px;
+  transition: transform 0.3s ease;
+}
+
+.header__searchIcon:active {
+  transform: scale(1.2);
+}
+
+.header__searchIcon:hover {
+  background-color: #ff982a; /* Change color when button is hovered */
+  transform: scale(1.05);
 }
 
 .header__nav {
@@ -128,8 +138,8 @@
 }
 
 .product button {
-  background-color: #FF772A;
-  color: #FFFFFF;
+  background-color: #ff772a;
+  color: #ffffff;
   padding: 10px 20px;
   border-radius: 20px;
   border: none;
@@ -140,12 +150,12 @@
 }
 
 .product button:active {
-  background-color: #FF5722; /* Change color when button is clicked */
+  background-color: #ff5722; /* Change color when button is clicked */
   transform: scale(0.95); /* Scale down when button is clicked */
 }
 
 .product button:hover {
-  background-color: #FF982A; /* Change color when button is hovered */
+  background-color: #ff982a; /* Change color when button is hovered */
   transform: scale(1.05); /* Scale up when button is hovered */
 }
 
@@ -164,6 +174,11 @@
   margin-left: 200px; /* Add left margin to move the list to the right */
 }
 
+.no-results-image {
+  display: block;
+  margin-left: 220px;
+  margin-right: auto;
+}
 
 /* =====Cart===== */
 .cart-container {
