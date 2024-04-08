@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { CartContext } from "../contexts/CartContext";
+import { SearchContext } from '../contexts/SearchContext';
 import { Link } from "react-router-dom";
 import "../Project.css";
 import logo from "../assets/logo.png";
@@ -8,6 +9,15 @@ import ShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 
 function Header() {
   const { cart } = useContext(CartContext);
+  const { setSearchQuery } = useContext(SearchContext);
+
+  const handleSearch = (event) => {
+    if (event.key === 'Enter' || event.type === 'click') {
+      setSearchQuery(event.target.value);
+    }
+  };
+
+
   return (
     <header className="header">
       {" "}
@@ -18,8 +28,9 @@ function Header() {
           className="header__searchInput"
           type="text"
           placeholder="Search for anything"
+          onKeyDown={handleSearch}
         />
-        <SearchIcon className="header__searchIcon" />
+        <SearchIcon className="header__searchIcon" onClick={handleSearch} />
       </div>
       <nav className="header__nav">
         {" "}

@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
+import { SearchContext } from '../contexts/SearchContext';
 import axios from "axios";
 import Product from "./Product";
 import "../Project.css";
 
 function ProductList() {
   const [products, setProducts] = useState([]);
+  const { searchQuery } = useContext(SearchContext);
 
   useEffect(() => {
     axios
@@ -17,9 +19,13 @@ function ProductList() {
       });
   }, []);
 
+  const filteredProducts = products.filter(product =>
+    product.title.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
     <div className="product-list">
-      {products.map((product) => (
+      {filteredProducts.map((product) => (
         <Product key={product.id} {...product} />
       ))}
     </div>
