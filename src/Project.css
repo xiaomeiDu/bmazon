@@ -4,13 +4,13 @@
   display: flex;
   align-items: center;
   background-color: white; /* Light grey background color */
-  color: #5E5E5E;
+  color: #5e5e5e;
   position: sticky;
   top: 0;
   z-index: 100;
   padding: 12px 36px; /* Add some horizontal padding */
   justify-content: center;
-  border-bottom: 2px solid rgba(34, 34, 34, .15);
+  border-bottom: 2px solid rgba(34, 34, 34, 0.15);
 }
 
 .header__logo {
@@ -22,8 +22,8 @@
   flex: 0.7;
   align-items: center;
   border-radius: 24px;
-  border: 2px solid #5E5E5E; /* Solid border for the search container */
-  background-color: #FFFFFF; /* White background for the search container */
+  border: 2px solid #5e5e5e; /* Solid border for the search container */
+  background-color: #ffffff; /* White background for the search container */
   overflow: hidden; /* Prevents children from overflowing the parent's border */
   margin: 10px;
 }
@@ -31,8 +31,8 @@
 .header__searchInput {
   flex-grow: 1; /* Allow the input to fill the space in the flex container */
   padding: 12px 10px; /* Increase vertical padding to increase height */
-  font-size: 16px; /* Optionally adjust font size for aesthetics */
-  color:rgba(34, 34, 34, .15);
+  font-size: 15px; /* Optionally adjust font size for aesthetics */
+  margin-left: 10px;
   border: none; /* No additional border for the input */
   outline: none; /* Remove the focus outline */
   background-color: transparent; /* No background color, it inherits from the parent */
@@ -44,14 +44,23 @@
 
 .header__searchIcon {
   padding: 7px;
-  background-color: #FF772A;
-  color: #FFFFFF; /* White color for the search icon */
+  background-color: #ff772a;
+  color: #ffffff; /* White color for the search icon */
   border-radius: 999999px; /* Rounded corners on the right side of the icon */
   width: 48px;
   height: 48px;
   margin: 2px;
+  transition: transform 0.3s ease;
 }
 
+.header__searchIcon:active {
+  transform: scale(1.2);
+}
+
+.header__searchIcon:hover {
+  background-color: #ff982a; /* Change color when button is hovered */
+  transform: scale(1.05);
+}
 
 .header__nav {
   display: flex;
@@ -60,14 +69,14 @@
 
 .header__option {
   margin-right: 10px; /* Add margin to separate from the shopping cart icon */
-  font-size: 13px; /* Increase font size for visibility */
+  font-size: 15px; /* Increase font size for visibility */
   line-height: 1.4;
   min-width: 36px;
   padding: 9px 15px;
 }
 
 .header__optionCart {
-  color: #5E5E5E; /* Same color as text for the shopping cart icon */
+  color: #5e5e5e; /* Same color as text for the shopping cart icon */
   margin-right: 10px;
   position: relative;
 }
@@ -76,8 +85,8 @@
   position: absolute; /* Position the basket count absolutely within its parent */
   top: -8px; /* Adjust top position to move it above the cart icon */
   right: -8px; /* Adjust right position to move it to the right of the cart icon */
-  background-color: #FF772A;
-  color: #FFFFFF;
+  background-color: #ff772a;
+  color: #ffffff;
   font-size: 12px;
   border-radius: 12px;
   /* Other styles to ensure the text is centered and looks like a badge */
@@ -87,7 +96,161 @@
   min-width: 16px; /* Ensure the badge has a minimum width */
   height: 16px; /* Set the height for the badge */
   box-sizing: border-box;
-  border: 2px solid #FFFFFF; /* Border color similar to the header background for a "cut-out" effect */
+  border: 2px solid #ffffff; /* Border color similar to the header background for a "cut-out" effect */
+}
+
+/* =====Product===== */
+
+.product {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 4px;
+  text-align: center;
+  width: 300px;
+  height: 370px; /* Set a fixed height */
+}
+
+.product .details {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+}
+
+.product img {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+  margin: 0 auto; /* Center the image horizontally */
+}
+.product h4 {
+  flex-grow: 1;
+  height: 50px; /* Set a fixed height for the title */
+  margin: 10px 0 5px 0;
+  overflow: hidden; /* Prevent long titles from taking up too much space */
+}
+
+.product .price {
+  margin-bottom: 10px;
+}
+
+.product button {
+  background-color: #ff772a;
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: none;
+  opacity: 0.9;
+  width: 90%;
+  margin: auto;
+  transition: all 0.3s ease; /* Add transition for smooth effect */
+}
+
+.product button:active {
+  background-color: #ff5722; /* Change color when button is clicked */
+  transform: scale(0.95); /* Scale down when button is clicked */
+}
+
+.product button:hover {
+  background-color: #ff982a; /* Change color when button is hovered */
+  transform: scale(1.05); /* Scale up when button is hovered */
+}
+
+/* =====ProductList===== */
+
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: minmax(
+    400px,
+    auto
+  ); /* Set a minimum height for the grid rows */
+  gap: 20px;
+  align-items: stretch; /* Stretch the items to fill the grid cell */
+  padding: 50px;
+  margin-left: 200px; /* Add left margin to move the list to the right */
+}
+
+.no-results-image {
+  display: block;
+  margin-left: 220px;
+  margin-right: auto;
+}
+
+/* =====Cart===== */
+.cart-container {
+  width: 80%;
+  margin: auto;
+  padding: 20px;
+}
+
+.cart h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.cartItem {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+}
+
+.cartItem__image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin-right: 20px;
+}
+
+.cartItem__details {
+  flex-grow: 1;
+}
+
+.cartItem__quantity {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.cartItem__quantity button {
+  border: none;
+  background-color: #eee;
+  padding: 5px 10px;
+}
+
+.cartItem__quantity input {
+  width: 40px;
+  text-align: center;
+  border: 1px solid #ddd;
+  margin: 0 5px;
+}
+
+.cartItem__price {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.cartItem__remove {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.cart__subtotal {
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+.cart__homeLink {
+  display: block;
+  margin-top: 20px;
+  text-decoration: none;
+  color: #000;
 }
 
 /* =====Product===== */

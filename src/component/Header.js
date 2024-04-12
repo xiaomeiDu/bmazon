@@ -1,26 +1,62 @@
-import React from "react";
+import React, { useContext, useState } from "react";
+import { CartContext } from "../contexts/CartContext";
+import { SearchContext } from "../contexts/SearchContext";
+import { Link } from "react-router-dom";
 import "../Project.css";
 import logo from "../assets/logo.png";
 import SearchIcon from "@mui/icons-material/Search";
 import ShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 
 function Header() {
+  const { cart } = useContext(CartContext);
+  const { setSearchQuery } = useContext(SearchContext);
+  const [inputValue, setInputValue] = useState("");
+
+  const handleInputChange = (event) => {
+    setInputValue(event.target.value);
+  };
+
+  const handleSearch = (event) => {
+    if (event.key === "Enter") {
+      setSearchQuery(inputValue);
+    }
+  };
+
+  const handleIconClick = () => {
+    setSearchQuery(inputValue);
+  };
+
+  const handleLogoClick = () => {
+    setSearchQuery("");
+  };
+
   return (
-    <header className="header"> {/* Use semantic HTML where appropriate */}
-      <img className="header__logo" src={logo} alt="Bmazon" />
-
+    <header className="header">
+      {" "}
+      <Link to="/" onClick={handleLogoClick}>
+        <img className="header__logo" src={logo} alt="Bmazon" />
+      </Link>
       <div className="header__search">
-        <input className="header__searchInput" type="text" placeholder="Search for anything" />
-        <SearchIcon className="header__searchIcon" />
+        <input
+          className="header__searchInput"
+          type="text"
+          placeholder="Search for anything"
+          value={inputValue}
+          onChange={handleInputChange}
+          onKeyDown={handleSearch}
+        />
+        <SearchIcon className="header__searchIcon" onClick={handleIconClick} />
       </div>
-
-      <nav className="header__nav"> {/* Semantic HTML for navigation */}
+      <nav className="header__nav">
+        {" "}
         <div className="header__option">
           <span>Sign in</span>
         </div>
         <div className="header__optionCart">
-          <ShoppingCartIcon />
-          <span className="header__cartCount">0</span>
+          <Link to="/cart">
+            <ShoppingCartIcon />
+          </Link>
+          <span className="header__cartCount">{cart.length}</span>
         </div>
       </nav>
     </header>
