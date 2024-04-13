@@ -30,6 +30,8 @@ function Header() {
     setSearchQuery("");
   };
 
+  const cartItemCount = cart.reduce((total, item) => total + item.quantity, 0);
+
   return (
     <header className="header">
       {" "}
@@ -54,9 +56,9 @@ function Header() {
         </div>
         <div className="header__optionCart">
           <Link to="/cart">
-            <ShoppingCartIcon style={{ color: '#5e5e5e' }}/>
+            <ShoppingCartIcon style={{ color: "#5e5e5e" }} />
           </Link>
-          <span className="header__cartCount">{cart.length}</span>
+          <span className="header__cartCount">{cartItemCount}</span>
         </div>
       </nav>
     </header>

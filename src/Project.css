@@ -211,7 +211,6 @@
   }
 }
 
-
 /* =====Cart===== */
 .cart-container {
   width: 80%;
@@ -324,8 +323,8 @@
 }
 
 .product button {
-  background-color: #FF772A;
-  color: #FFFFFF;
+  background-color: #ff772a;
+  color: #ffffff;
   padding: 10px 20px;
   border-radius: 20px;
   border: none;
@@ -336,12 +335,12 @@
 }
 
 .product button:active {
-  background-color: #FF5722; /* Change color when button is clicked */
+  background-color: #ff5722; /* Change color when button is clicked */
   transform: scale(0.95); /* Scale down when button is clicked */
 }
 
 .product button:hover {
-  background-color: #FF982A; /* Change color when button is hovered */
+  background-color: #ff982a; /* Change color when button is hovered */
   transform: scale(1.05); /* Scale up when button is hovered */
 }
 
@@ -359,7 +358,6 @@
   padding: 50px;
   margin-left: 200px; /* Add left margin to move the list to the right */
 }
-
 
 /* =====Cart===== */
 .cart-container {

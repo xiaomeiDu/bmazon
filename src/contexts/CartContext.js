@@ -1,4 +1,4 @@
-import React, { useState, createContext, useEffect, useCallback } from 'react';
+import React, { useState, createContext, useEffect, useCallback } from "react";
 
 export const CartContext = createContext();
 
@@ -7,7 +7,7 @@ export const CartProvider = ({ children }) => {
 
   // Load cart data from localStorage on component mount
   const loadCartFromStorage = () => {
-    const storedCart = localStorage.getItem('cart');
+    const storedCart = localStorage.getItem("cart");
     if (storedCart) {
       setCart(JSON.parse(storedCart));
     }
@@ -15,7 +15,7 @@ export const CartProvider = ({ children }) => {
 
   // Save cart data to localStorage when cart state changes
   const saveCartToStorage = useCallback(() => {
-    localStorage.setItem('cart', JSON.stringify(cart));
+    localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
 
   useEffect(() => {
@@ -26,20 +26,21 @@ export const CartProvider = ({ children }) => {
     saveCartToStorage();
   }, [saveCartToStorage]);
 
-  // Add a product to the cart
   const addToCart = (product) => {
-    if (!product || !product.id) {
-      console.error('Invalid product:', product);
-      return;
-    }
-
     setCart((currentCart) => {
-      const existingProductIndex = currentCart.findIndex((item) => item.id === product.id);
-      if (existingProductIndex !== -1) {
+      const productIndex = currentCart.findIndex(
+        (item) => item.id === product.id
+      );
+      if (productIndex !== -1) {
+        // Clone the cart to avoid direct mutation
         const updatedCart = [...currentCart];
-        updatedCart[existingProductIndex].quantity += 1;
+        updatedCart[productIndex] = {
+          ...updatedCart[productIndex],
+          quantity: updatedCart[productIndex].quantity + 1,
+        };
         return updatedCart;
       } else {
+        // Product is not in the cart yet, add as new
         return [...currentCart, { ...product, quantity: 1 }];
       }
     });
@@ -49,18 +50,25 @@ export const CartProvider = ({ children }) => {
   const updateQuantity = (productId, change) => {
     setCart((currentCart) =>
       currentCart.map((item) =>
-        item.id === productId ? { ...item, quantity: Math.max(1, item.quantity + change) } : item
+        item.id === productId
+          ? { ...item, quantity: Math.max(1, item.quantity + change) }
+          : item
       )
     );
   };
 
   // Remove a product from the cart
   const removeProduct = (productId) => {
-    setCart((currentCart) => currentCart.filter((item) => item.id !== productId));
+    setCart((currentCart) =>
+      currentCart.filter((item) => item.id !== productId)
+    );
   };
 
   // Calculate the total price of all items in the cart
-  const totalPrice = cart.reduce((total, currentItem) => total + currentItem.price * currentItem.quantity, 0);
+  const totalPrice = cart.reduce(
+    (total, currentItem) => total + currentItem.price * currentItem.quantity,
+    0
+  );
 
   return (
     <CartContext.Provider
