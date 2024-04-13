@@ -252,3 +252,35 @@
   text-decoration: none;
   color: #000;
 }
+
+.loader {
+  position: fixed; /* Position relative to the viewport */
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Adjust the exact center of the loader */
+  z-index: 1000; /* Make sure it is above other content */
+}
+
+.loader:after {
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 6px solid #ff5722;
+  border-color: #ff5722 transparent #bebebe transparent;
+  animation: loader-animation 1.2s infinite;
+}
+
+@keyframes loader-animation {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+    border-color: #bebebe transparent #ff5722 transparent;
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -7,16 +7,19 @@ import "../Project.css";
 
 function ProductList() {
   const [products, setProducts] = useState([]);
-  const { searchQuery = "" } = useContext(SearchContext); // Add default value
+  const [isLoading, setIsLoading] = useState(true); // Add loading state
+  const { searchQuery = "" } = useContext(SearchContext);
 
   useEffect(() => {
     axios
       .get("https://fakestoreapi.com/products")
       .then((response) => {
         setProducts(response.data);
+        setIsLoading(false);
       })
       .catch((error) => {
         console.error("Error fetching data: ", error);
+        setIsLoading(false);
       });
   }, []);
 
@@ -26,7 +29,9 @@ function ProductList() {
 
   return (
     <div className="product-list">
-      {filteredProducts.length > 0 ? (
+    {isLoading ? (
+        <div className="loader"></div> // Use the CSS loader instead of text
+      ) : filteredProducts.length > 0 ? (
         filteredProducts.map((product) => (
           <Product key={product.id} {...product} />
         ))
