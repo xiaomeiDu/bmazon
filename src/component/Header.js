@@ -54,7 +54,7 @@ function Header() {
         </div>
         <div className="header__optionCart">
           <Link to="/cart">
-            <ShoppingCartIcon />
+            <ShoppingCartIcon style={{ color: '#5e5e5e' }}/>
           </Link>
           <span className="header__cartCount">{cart.length}</span>
         </div>
