@@ -1,8 +1,17 @@
-.sidebar-row {
-  display: flex; /* Use Flexbox */
-  justify-content: space-between; /* Space out the children evenly */
+.home__container {
+  display: flex;
+  justify-content: center; /* Center items horizontally */
+  padding: 25px 100px;
+  margin: 0 auto;
 }
 
-.sidebar-row > * {
-  flex-basis: 50%; /* Give each child 50% of the width */
+.home__sidebar {
+  flex: 1;
+  margin-right: 20px; /* Add space to the right of the sidebar */
+  /* existing styles */
+}
+
+.home__row {
+  flex: 3; /* adjust this value as needed */
+  /* existing styles */
 }

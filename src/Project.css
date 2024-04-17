@@ -169,8 +169,9 @@
   ); /* Set a minimum height for the grid rows */
   gap: 20px;
   align-items: stretch; /* Stretch the items to fill the grid cell */
-  padding: 50px;
-  margin-left: 200px; /* Add left margin to move the list to the right */
+  border-left: 1px solid #e0e0e0;
+  padding-left: 50px;
+  position: relative;
 }
 
 .no-results-image {
@@ -180,11 +181,17 @@
 }
 
 .loader {
-  position: fixed; /* Position relative to the viewport */
-  top: 50%; /* Center vertically */
-  left: 50%; /* Center horizontally */
-  transform: translate(-50%, -50%); /* Adjust the exact center of the loader */
-  z-index: 1000; /* Make sure it is above other content */
+  /* z-index: 1000; */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* Ensure the loader does not exceed the container's width */
+  max-width: 100%;
+  max-height: 100%;
+  /* Remove any width/height that could push the content */
+  width: auto;
+  height: auto;
 }
 
 .loader:after {
@@ -211,6 +218,44 @@
   }
 }
 
+/* =====Sidebar===== */
+.home__sidebar {
+  background-color: #ffffff; /* Keep the background white for a clean look */
+  border-radius: 6px; /* You can keep or remove the border-radius for squared edges */
+  width: 200px; /* Set a fixed width or adjust as necessary for your layout */
+  text-align: left;
+}
+
+.sidebar__title {
+  font-size: 1.25rem; /* Title size, adjust as necessary */
+  margin-bottom: 20px; /* Space after the title */
+  font-weight: bold; /* Bold font weight for the title */
+  color: #333; /* A darker color for the title for contrast */
+}
+
+.category__item {
+  display: block; /* Use block for a full-width click target */
+  margin-bottom: 10px; /* Space between category items */
+}
+
+.category__checkbox {
+  margin-right: 10px; /* Space between checkbox and label */
+  accent-color: #000; /* Checkbox color, usually your brand’s primary color */
+}
+
+.category__label {
+  font-size: 1rem; /* Label font size */
+  color: #333; /* Label text color, can be softer than the title */
+  cursor: pointer; /* Indicates an interactive element */
+}
+
+/* Interaction states for the checkbox label for a subtle hover effect */
+.category__label:hover {
+  color: #000; /* A subtle change in color on hover */
+}
+.category__checkbox[type="checkbox"] {
+  border-radius: 50%;
+}
 
 /* =====Cart===== */
 .cart-container {
