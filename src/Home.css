@@ -1,17 +1,41 @@
+.home {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 2rem 0;
+}
+
 .home__container {
   display: flex;
-  justify-content: center; /* Center items horizontally */
-  padding: 25px 100px;
-  margin: 0 auto;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1200px; /* Set a max-width for the entire container */
+  width: 100%;
+  padding: 1rem; /* Optional: if you want some space inside the container */
+  margin-right: 60px;
 }
 
 .home__sidebar {
-  flex: 1;
-  margin-right: 20px; /* Add space to the right of the sidebar */
-  /* existing styles */
+  flex: 0 0 200px; /* Sidebar width */
+  /* Remove margin-right if you are using gap in the parent container */
 }
 
-.home__row {
-  flex: 3; /* adjust this value as needed */
-  /* existing styles */
+
+/* Make sure your grid also accommodates for smaller screens */
+@media (max-width: 768px) {
+  .home__container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .home__sidebar {
+    width: 100%;
+    order: 2; /* Put the sidebar below the product list on small screens */
+  }
+
+  .home__row {
+    width: 100%;
+    order: 1;
+  }
 }
