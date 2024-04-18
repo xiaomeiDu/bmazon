@@ -169,9 +169,8 @@
   ); /* Set a minimum height for the grid rows */
   gap: 20px;
   align-items: stretch; /* Stretch the items to fill the grid cell */
-  border-left: 1px solid #e0e0e0;
-  padding-left: 50px;
-  position: relative;
+  padding: 50px;
+  margin-left: 200px; /* Add left margin to move the list to the right */
 }
 
 .no-results-image {
@@ -181,17 +180,11 @@
 }
 
 .loader {
-  /* z-index: 1000; */
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  /* Ensure the loader does not exceed the container's width */
-  max-width: 100%;
-  max-height: 100%;
-  /* Remove any width/height that could push the content */
-  width: auto;
-  height: auto;
+  position: fixed; /* Position relative to the viewport */
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Adjust the exact center of the loader */
+  z-index: 1000; /* Make sure it is above other content */
 }
 
 .loader:after {
@@ -218,114 +211,159 @@
   }
 }
 
-/* =====Sidebar===== */
-.home__sidebar {
-  background-color: #ffffff; /* Keep the background white for a clean look */
-  border-radius: 6px; /* You can keep or remove the border-radius for squared edges */
-  width: 200px; /* Set a fixed width or adjust as necessary for your layout */
-  text-align: left;
-}
-
-.sidebar__title {
-  font-size: 1.25rem; /* Title size, adjust as necessary */
-  margin-bottom: 20px; /* Space after the title */
-  font-weight: bold; /* Bold font weight for the title */
-  color: #333; /* A darker color for the title for contrast */
-}
-
-.category__item {
-  display: block; /* Use block for a full-width click target */
-  margin-bottom: 10px; /* Space between category items */
-}
-
-.category__checkbox {
-  margin-right: 10px; /* Space between checkbox and label */
-  accent-color: #000; /* Checkbox color, usually your brand’s primary color */
-}
-
-.category__label {
-  font-size: 1rem; /* Label font size */
-  color: #333; /* Label text color, can be softer than the title */
-  cursor: pointer; /* Indicates an interactive element */
-}
-
-/* Interaction states for the checkbox label for a subtle hover effect */
-.category__label:hover {
-  color: #000; /* A subtle change in color on hover */
-}
-.category__checkbox[type="checkbox"] {
-  border-radius: 50%;
-}
-
 /* =====Cart===== */
 .cart-container {
-  width: 80%;
-  margin: auto;
+  max-width: 800px;
+  margin: 0 auto;
   padding: 20px;
 }
 
-.cart h2 {
-  font-size: 24px;
+.cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ccc;
 }
 
-.cartItem {
+.cart-header h2 {
+  margin: 0;
+  font-size: 24px;
+  color: #333;
+}
+
+.cart-header div {
   display: flex;
   align-items: center;
-  margin-bottom: 10px;
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 10px;
 }
 
-.cartItem__image {
-  width: 100px;
-  height: 100px;
-  object-fit: cover;
-  margin-right: 20px;
-}
-
-.cartItem__details {
-  flex-grow: 1;
-}
-
-.cartItem__quantity {
-  display: inline-flex;
-  align-items: center;
-  margin-right: 20px;
-}
-
-.cartItem__quantity button {
-  border: none;
-  background-color: #eee;
-  padding: 5px 10px;
-}
-
-.cartItem__quantity input {
-  width: 40px;
-  text-align: center;
-  border: 1px solid #ddd;
-  margin: 0 5px;
-}
-
-.cartItem__price {
-  font-size: 18px;
+.back-to-products {
+  text-decoration: none;
+  color: #ff772a;
   font-weight: bold;
 }
 
-.cartItem__remove {
+.back-to-products:hover {
+  text-decoration: underline;
+}
+
+.cart-items {
+  display: grid;
+  grid-gap: 20px;
+}
+
+.cart-item {
+  display: flex;
+  align-items: flex-start;
+  padding: 20px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.item-image {
+  flex: 0 0 150px;
+  margin-right: 20px;
+}
+
+.item-image img {
+  width: 100%;
+  height: 150px;
+  object-fit: contain;
+  object-position: center;
+}
+
+.item-details {
+  flex: 1;
+}
+
+.item-details h3 {
+  margin: 0 0 10px;
+  font-size: 18px;
+  color: #333;
+}
+
+.item-price,
+.item-total {
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #666;
+}
+
+.item-quantity {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.item-quantity button {
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #333;
+}
+
+.item-quantity span {
+  margin: 0 10px;
+  font-size: 16px;
+  color: #333;
+}
+
+.remove-button {
   background: none;
   border: none;
   cursor: pointer;
+  padding: 0;
+  margin-left: auto;
 }
 
-.cart__subtotal {
-  font-size: 18px;
-  margin-top: 20px;
+.remove-button .delete-icon {
+  font-size: 20px;
+  color: #ff772a;
+  transition: color 0.3s ease;
 }
 
-.cart__homeLink {
-  display: block;
+.remove-button .delete-icon:hover {
+  color: #e66a31;
+}
+
+.cart-summary {
   margin-top: 20px;
-  text-decoration: none;
-  color: #000;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+}
+
+.cart-summary h3 {
+  margin: 0 0 10px;
+  font-size: 20px;
+  color: #333;
+}
+
+.subtotal {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #666;
+}
+
+.checkout-button {
+  background-color: #ff772a;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 100%;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.checkout-button:hover {
+  background-color: #e66a31;
 }
