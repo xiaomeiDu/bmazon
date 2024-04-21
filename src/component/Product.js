@@ -14,7 +14,6 @@ function Product({ id, title, image, price }) {
 
     // Assuming addToCart updates the state synchronously or there is some other indicator
     // when the cart has been updated, we reset the 'adding' state to false.
-    // If addToCart is asynchronous, you might need additional logic to determine when it's completed.
     setAdding(false); // Re-enable the button after adding to cart
   };
 
