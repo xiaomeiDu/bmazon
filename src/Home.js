@@ -1,7 +1,7 @@
 import React from "react";
 import "./Home.css";
-import ProductList from './component/ProductList';
-import Sidebar from './component/SideBar';
+import ProductList from "./component/ProductList";
+import Sidebar from "./component/SideBar";
 
 function Home() {
   return (
@@ -20,6 +20,5 @@ function Home() {
     </div>
   );
 }
-
 
 export default Home;

@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import { SearchContext } from "../contexts/SearchContext";
-import { CategoryContext } from '../contexts/CategoryContext';
+import { CategoryContext } from "../contexts/CategoryContext";
 import axios from "axios";
 import Product from "./Product";
 import noResultsImage from "../assets/noresults.png";

@@ -1,12 +1,13 @@
-import React, { useContext } from 'react';
-import { CartContext } from '../contexts/CartContext';
-import DeleteIcon from '@mui/icons-material/Delete';
-import '../Project.css';
-import { Link } from 'react-router-dom';
+import React, { useContext } from "react";
+import { CartContext } from "../contexts/CartContext";
+import DeleteIcon from "@mui/icons-material/Delete";
+import "../Project.css";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
   // Get necessary functions and state from CartContext
-  const { cart, updateQuantity, removeProduct, totalPrice } = useContext(CartContext);
+  const { cart, updateQuantity, removeProduct, totalPrice } =
+    useContext(CartContext);
 
   // Handle quantity change for a product
   const handleQuantityChange = (productId, change) => {
@@ -42,14 +43,27 @@ const Cart = () => {
                 </div>
                 <div className="item-details">
                   <h3>{product.title}</h3>
-                  <p className="item-price">Price: ${product.price.toFixed(2)}</p>
+                  <p className="item-price">
+                    Price: ${product.price.toFixed(2)}
+                  </p>
                   <div className="item-quantity">
-                    <button onClick={() => handleQuantityChange(product.id, -1)}>-</button>
+                    <button
+                      onClick={() => handleQuantityChange(product.id, -1)}
+                    >
+                      -
+                    </button>
                     <span>{product.quantity}</span>
-                    <button onClick={() => handleQuantityChange(product.id, 1)}>+</button>
+                    <button onClick={() => handleQuantityChange(product.id, 1)}>
+                      +
+                    </button>
                   </div>
-                  <p className="item-total">Total: ${(product.price * product.quantity).toFixed(2)}</p>
-                  <button className="remove-button" onClick={() => handleRemoveProduct(product.id)}>
+                  <p className="item-total">
+                    Total: ${(product.price * product.quantity).toFixed(2)}
+                  </p>
+                  <button
+                    className="remove-button"
+                    onClick={() => handleRemoveProduct(product.id)}
+                  >
                     <DeleteIcon />
                   </button>
                 </div>

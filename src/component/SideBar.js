@@ -1,6 +1,6 @@
-import React, { useEffect, useState, useContext } from 'react';
-import axios from 'axios';
-import { CategoryContext } from '../contexts/CategoryContext';
+import React, { useEffect, useState, useContext } from "react";
+import axios from "axios";
+import { CategoryContext } from "../contexts/CategoryContext";
 import "../Home.css";
 
 function Sidebar() {
@@ -8,7 +8,8 @@ function Sidebar() {
   const { categoryFilter, setCategoryFilter } = useContext(CategoryContext);
 
   useEffect(() => {
-    axios.get("https://fakestoreapi.com/products/categories")
+    axios
+      .get("https://fakestoreapi.com/products/categories")
       .then((response) => {
         setCategories(response.data);
       })
@@ -22,10 +23,12 @@ function Sidebar() {
     } else {
       // If the checkbox is unchecked, check if any other checkboxes are checked
       // If none are checked, reset the category filter to show all products
-      const checkboxes = document.querySelectorAll('.category__checkbox');
-      const isAnyChecked = Array.from(checkboxes).some(checkbox => checkbox.checked);
+      const checkboxes = document.querySelectorAll(".category__checkbox");
+      const isAnyChecked = Array.from(checkboxes).some(
+        (checkbox) => checkbox.checked
+      );
       if (!isAnyChecked) {
-        setCategoryFilter('');
+        setCategoryFilter("");
       }
     }
   };

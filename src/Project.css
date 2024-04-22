@@ -173,7 +173,6 @@
   min-height: 600px;
 }
 
-
 .no-results-image {
   display: block;
   margin-left: 220px;
@@ -240,7 +239,7 @@
 
 .category__label {
   font-size: 1rem; /* Label font size */
-  color: #5e5e5e;/* Label text color, can be softer than the title */
+  color: #5e5e5e; /* Label text color, can be softer than the title */
   cursor: pointer; /* Indicates an interactive element */
 }
 
@@ -403,7 +402,7 @@
   width: 100%;
   border-radius: 4px;
   transition: background-color 0.3s ease;
-  border-radius: 20px
+  border-radius: 20px;
 }
 
 .checkout-button:hover {

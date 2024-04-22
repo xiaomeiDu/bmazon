@@ -21,7 +21,6 @@
   /* Remove margin-right if you are using gap in the parent container */
 }
 
-
 /* Make sure your grid also accommodates for smaller screens */
 @media (max-width: 768px) {
   .home__container {
