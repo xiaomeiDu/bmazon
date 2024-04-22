@@ -24,7 +24,7 @@ const Cart = () => {
         <h2>Shopping Cart</h2>
         <div>
           <Link to="/" className="back-to-products">
-            Go to Products Page
+            Go to Home Page
           </Link>
         </div>
       </div>
