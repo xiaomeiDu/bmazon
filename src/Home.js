@@ -2,7 +2,7 @@ import React from "react";
 import "./Home.css";
 import ProductList from "./component/ProductList";
 import Sidebar from "./component/SideBar";
-
+import Footer from "./component/footer";
 function Home() {
   return (
     <div className="home">
@@ -16,6 +16,9 @@ function Home() {
             <ProductList />
           </div>
         </>
+      </div>
+      <div className="home_footer">
+        <Footer />
       </div>
     </div>
   );
