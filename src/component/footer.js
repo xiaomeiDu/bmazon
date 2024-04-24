@@ -1,40 +1,14 @@
-import React from 'react';  
-import '../footer.css';
-  
-const Footer = () => {  
-  return (  
-    <footer className="footer">  
-      <div className="footer-container">  
-        <div className="footer-links">  
-          <h3>About Us</h3>  
-          <ul>  
-            <li>Company Introduction</li>  
-            <li>Development Journey</li>  
-            <li>Partners</li>  
-          </ul>  
-        </div>
-        <div className="footer-links">  
-          <h3>Customer Service</h3>  
-          <ul>  
-            <li>Contact Us</li>  
-            <li>Online Support</li>  
-            <li>After-Sales Service</li>  
-          </ul>  
-        </div>  
-        <div className="footer-links">  
-          <h3>Follow Us</h3>  
-          <ul>  
-            <li>Weibo</li>  
-            <li>WeChat</li>  
-            <li>TikTok</li>  
-          </ul>  
-        </div>  
-      </div>  
-      <div className="footer-bottom">  
-        <p>2024 bmazon</p>
-      </div>  
-    </footer>  
-  );  
-};  
-  
+import React from "react";
+import "../Project.css";
+
+const Footer = () => {
+  return (
+    <footer className="home__footer">
+      <div className="footer__content">
+        <p>&copy; {new Date().getFullYear()} Bmazon. All rights reserved.</p>
+      </div>
+    </footer>
+  );
+};
+
 export default Footer;

@@ -15,28 +15,24 @@
   /* Set a max-width for the entire container */
   width: 100%;
   padding: 1rem;
-  /* Optional: if you want some space inside the container */
-  margin-right: 60px;
-  margin: 0 auto;
+  margin-left: 60px;
 }
 
 .home__sidebar {
   flex: 0 0 200px;
   /* Sidebar width */
-  /* Remove margin-right if you are using gap in the parent container */
 }
 
 .home_footer {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  max-width: 1340px;
   width: 100%;
-  padding: 1rem;
+  padding-top: 2rem;
   margin: 0 auto;
 }
 
-/* Make sure your grid also accommodates for smaller screens */
+/* Make sure grid also accommodates for smaller screens */
 @media (max-width: 768px) {
   .home__container {
     flex-direction: column;

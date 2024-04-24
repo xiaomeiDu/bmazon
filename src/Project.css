@@ -214,8 +214,8 @@
 /* =====Sidebar===== */
 .home__sidebar {
   background-color: #ffffff; /* Keep the background white for a clean look */
-  border-radius: 6px; /* You can keep or remove the border-radius for squared edges */
-  width: 200px; /* Set a fixed width or adjust as necessary for your layout */
+  border-radius: 6px;
+  width: 200px;
   text-align: left;
 }
 
@@ -234,7 +234,7 @@
 
 .category__checkbox {
   margin-right: 10px; /* Space between checkbox and label */
-  accent-color: #000; /* Checkbox color, usually your brand’s primary color */
+  accent-color: #000;
 }
 
 .category__label {
@@ -407,4 +407,18 @@
 
 .checkout-button:hover {
   background-color: #e66a31;
+}
+/* =====Footer===== */
+.home__footer {
+  color: #5e5e5e;
+  text-align: center;
+  padding: 20px;
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+  border-top: 2px solid rgba(34, 34, 34, 0.15);
+}
+
+.footer__content {
+  font-size: 15px;
 }
