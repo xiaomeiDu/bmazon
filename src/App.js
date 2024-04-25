@@ -9,24 +9,30 @@ import { CartProvider } from "./contexts/CartContext";
 import { SearchProvider } from "./contexts/SearchContext";
 import { CategoryProvider } from "./contexts/CategoryContext";
 import Cart from "./component/Cart";
+import Footer from "./component/Footer";
 
 function App() {
   return (
-    <CategoryProvider>
-      <SearchProvider>
-        <CartProvider>
-          <Router>
-            <Header />
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/products" element={<ProductList />} />
-              <Route path="/product/:productId" element={<Product />} />
-              <Route path="/cart" element={<Cart />} />
-            </Routes>
-          </Router>
-        </CartProvider>
-      </SearchProvider>
-    </CategoryProvider>
+    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+      <CategoryProvider>
+        <SearchProvider>
+          <CartProvider>
+            <Router>
+              <Header />
+              <div style={{ flex: 1 }}>
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/products" element={<ProductList />} />
+                  <Route path="/product/:productId" element={<Product />} />
+                  <Route path="/cart" element={<Cart />} />
+                </Routes>
+              </div>
+              <Footer />
+            </Router>
+          </CartProvider>
+        </SearchProvider>
+      </CategoryProvider>
+    </div>
   );
 }
 
