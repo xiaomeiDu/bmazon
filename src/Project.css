@@ -408,3 +408,13 @@
 .checkout-button:hover {
   background-color: #e66a31;
 }
+
+/* =====Footer===== */
+.home__footer {
+  width: 100%;
+  text-align: center;
+  background-color: #f5f5f5;
+  color: #666;
+  padding: 10px 0;
+  clear: both; 
+}
