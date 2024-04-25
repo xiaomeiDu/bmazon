@@ -32,7 +32,7 @@
   margin: 0 auto;
 }
 
-/* Make sure grid also accommodates for smaller screens */
+/* Media query for smaller screens */
 @media (max-width: 768px) {
   .home__container {
     flex-direction: column;
