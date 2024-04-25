@@ -182,7 +182,7 @@
 .loader {
   position: fixed;
   top: 50%; /* Center vertically */
-  left: 60%; /* Center horizontally */
+  left: 55%;
   transform: translate(-50%, -50%); /* Adjust the exact center of the loader */
   z-index: 1000; /* Make sure it is above other content */
 }
@@ -416,5 +416,5 @@
   background-color: #f5f5f5;
   color: #666;
   padding: 10px 0;
-  clear: both; 
+  clear: both;
 }
