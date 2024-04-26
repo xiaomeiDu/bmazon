@@ -3,15 +3,10 @@ import React, { useState, createContext, useEffect, useCallback } from "react";
 export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
-  const [cart, setCart] = useState([]);
-
-  // Load cart data from localStorage on component mount
-  const loadCartFromStorage = () => {
+  const [cart, setCart] = useState(() => {
     const storedCart = localStorage.getItem("cart");
-    if (storedCart) {
-      setCart(JSON.parse(storedCart));
-    }
-  };
+    return storedCart ? JSON.parse(storedCart) : [];
+  });
 
   // Save cart data to localStorage when cart state changes
   const saveCartToStorage = useCallback(() => {
@@ -19,14 +14,15 @@ export const CartProvider = ({ children }) => {
   }, [cart]);
 
   useEffect(() => {
-    loadCartFromStorage();
-  }, []);
-
-  useEffect(() => {
     saveCartToStorage();
   }, [saveCartToStorage]);
 
   const addToCart = (product) => {
+    if (!product || !product.id) {
+      console.error("Invalid product:", product);
+      return;
+    }
+
     setCart((currentCart) => {
       const productIndex = currentCart.findIndex(
         (item) => item.id === product.id
